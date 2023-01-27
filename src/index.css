@@ -1,12 +1,48 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 body {
   margin: 0;
   font-family: "Roboto", Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d5d4d4;
+  /* background-color: #d5d4d4; */
+}
+.container {
+  max-width: 1080px;
+  margin: 20px auto;
+}
+
+.theme-toggle i{
+  font-size: 2rem;
+  cursor: pointer;
+}
+.theme-toggle{
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root{
+  --background:white;
+  --text-primary:#000;
+  --text-secondary:rgb(36, 154, 209);
+  --accent:rgb(36, 154, 209);
+  --border:#333 ;
+  --form-bg:#fff;
+}
+
+[data-theme='dark']{
+  --background:black;
+  --text-primary:#000;
+  --text-secondary:rgb(36, 154, 209);
+  --accent:rgb(36, 154, 209);
+  --border:#333 ;
+  --form-bg:#fff;
+}
+@media screen and (max-width:478px) {
+  .container{
+    width:95%;
+
+  }
 }
