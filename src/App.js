@@ -1,17 +1,16 @@
-import { useState } from "react";
+import {  useState } from "react";
 import Search from "./components/search/search";
 import CurrentWeather from "./components/current-weather/current-weather";
 import Forecast from "./components/forecast/forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
-import useLocalStorage from "use-local-storage";
-import "./index.css"
+import './App.css'
+import "./index.css";
+
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-  const [theme, setTheme]= useLocalStorage('theme'? 'dark':'light')
 
-  
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
 
@@ -32,22 +31,15 @@ function App() {
       })
       .catch(console.log);
   };
-const switchTheme = () =>
-  {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-  }
   
   return (
-    <div className="container" data-theme={theme}>
-      <Search onSearchChange={handleOnSearchChange} />
-      {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast data={forecast} />}
-      <div className="theme-toggle" >
-        <p>Light theme</p>
-        <i onClick={switchTheme} class="fas fa-toggle-on"></i>
+      
+      <div className="container" >
+        <Search onSearchChange={handleOnSearchChange} />
+        {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
       </div>
-    </div>
+
   );
 }
 
